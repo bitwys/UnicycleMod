@@ -90,7 +90,7 @@ public class Unicycle extends Boat {
   }
 
   @Override
-  public boolean hurt(DamageSource source, float amount) {
+  public boolean hurt(@NotNull DamageSource source, float amount) {
     if (this.isInvulnerableTo(source)) {
       return false;
     }
@@ -101,11 +101,10 @@ public class Unicycle extends Boat {
       this.setDamage(this.getDamage() + amount * 10.0F);
       this.markHurt();
       this.gameEvent(GameEvent.ENTITY_DAMAGE, source.getEntity());
-      boolean isSurvivalPlayer =
-          (source.getEntity() instanceof Player)
-              && !((Player) source.getEntity()).getAbilities().instabuild;
 
-      if (isSurvivalPlayer || this.getDamage() > 40.0F) {
+      final boolean isPlayer = source.getEntity() instanceof Player;
+
+      if (isPlayer || this.getDamage() > 40.0F) {
         if (this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
           this.spawnAtLocation(this.getDropItem());
         }
@@ -199,12 +198,12 @@ public class Unicycle extends Boat {
   }
 
   @Override
-  protected boolean canAddPassenger(Entity pPassenger) {
+  protected boolean canAddPassenger(@NotNull Entity pPassenger) {
     return this.getPassengers().size() < 1;
   }
 
   @Override
-  protected void addPassenger(Entity passenger) {
+  protected void addPassenger(@NotNull Entity passenger) {
     super.addPassenger(passenger);
     if (this.isControlledByLocalInstance() && this.lerpSteps > 0) {
       this.lerpSteps = 0;
