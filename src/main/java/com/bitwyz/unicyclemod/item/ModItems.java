@@ -15,7 +15,7 @@ public class ModItems {
       ITEMS.register("goober", () -> new Item(new Item.Properties()));
 
   public static final RegistryObject<Item> UNICYCLE =
-          ITEMS.register("unicycle", () -> new UnicycleItem(new Item.Properties().stacksTo(1)));
+      ITEMS.register("unicycle", () -> new UnicycleItem(new Item.Properties().stacksTo(1)));
 
   public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);

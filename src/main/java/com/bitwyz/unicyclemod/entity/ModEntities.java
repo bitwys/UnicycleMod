@@ -14,29 +14,29 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModEntities {
 
-    public static final DeferredRegister<EntityType<?>> ENTITIES =
-            DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, UnicycleMod.MOD_ID);
+  public static final DeferredRegister<EntityType<?>> ENTITIES =
+      DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, UnicycleMod.MOD_ID);
 
-    public static RegistryObject<EntityType<Unicycle>> UNICYCLE =
-            ENTITIES.register("unicycle", ModEntities::unicycleTypeFactory);
+  public static RegistryObject<EntityType<Unicycle>> UNICYCLE =
+      ENTITIES.register("unicycle", ModEntities::unicycleTypeFactory);
 
-    private static EntityType<Unicycle> unicycleTypeFactory() {
+  private static EntityType<Unicycle> unicycleTypeFactory() {
 
-        return new EntityType<Unicycle>(
-                Unicycle::new,
-                MobCategory.MISC,
-                true,
-                true,
-                true,
-                false,
-                ImmutableSet.of(),
-                EntityDimensions.fixed(1.0f, 1.0f),
-                100,
-                5,
-                FeatureFlagSet.of());
-    }
+    return new EntityType<Unicycle>(
+        Unicycle::new,
+        MobCategory.MISC,
+        true,
+        true,
+        true,
+        false,
+        ImmutableSet.of(),
+        EntityDimensions.fixed(1.0f, 1.0f),
+        100,
+        5,
+        FeatureFlagSet.of());
+  }
 
-    public static void register(IEventBus eventBus) {
-        ENTITIES.register(eventBus);
-    }
+  public static void register(IEventBus eventBus) {
+    ENTITIES.register(eventBus);
+  }
 }
