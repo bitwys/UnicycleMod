@@ -28,8 +28,8 @@ import java.util.List;
 
 public class Unicycle extends Boat {
 
-  private static final float MOVE_INV_FRICTION_FAC = 0.5f;
-  private static final float TURN_INV_FRICTION_FAC = 1.3f;
+  private static final float MOVE_INV_FRICTION_FAC = 0.6f;
+  private static final float TURN_INV_FRICTION_FAC = 1.6f;
 
   private boolean inputLeft;
   private boolean inputRight;
@@ -211,6 +211,11 @@ public class Unicycle extends Boat {
       this.absMoveTo(
           this.lerpX, this.lerpY, this.lerpZ, (float) this.lerpYRot, (float) this.lerpXRot);
     }
+  }
+
+  @Override
+  public float getStepHeight() {
+    return 2.0f;
   }
 
   /** Determines whether the unicycle is on land and can ride. */
