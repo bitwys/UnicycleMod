@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#B#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "unicyclemod:silly_block"
+    }
+  },
+  "result": {
+    "item": "unicyclemod:panel_block"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "variants" : {
+    "": {"model": "unicyclemod:/block/silly_block"}
+  }
+}
