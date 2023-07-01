@@ -103,9 +103,10 @@ public class Unicycle extends Boat {
       this.gameEvent(GameEvent.ENTITY_DAMAGE, source.getEntity());
 
       final boolean isPlayer = source.getEntity() instanceof Player;
+      final boolean isCreativePlayer = isPlayer && ((Player)source.getEntity()).getAbilities().instabuild;
 
       if (isPlayer || this.getDamage() > 40.0F) {
-        if (this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+        if (this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS) && !isCreativePlayer) {
           this.spawnAtLocation(this.getDropItem());
         }
 
@@ -118,7 +119,7 @@ public class Unicycle extends Boat {
 
   @Override
   public @NotNull Item getDropItem() {
-    return ModItems.UNICYCLE.get();
+    return ModItems.IRON_UNICYCLE_ITEM.get();
   }
 
   /** Called to update the entity's position/logic. */

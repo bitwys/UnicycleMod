@@ -20,10 +20,10 @@ public class ModTabs {
           () ->
               CreativeModeTab.builder()
                   .withTabsBefore(CreativeModeTabs.COMBAT)
-                  .icon(() -> ModItems.UNICYCLE.get().getDefaultInstance())
+                  .icon(() -> ModItems.IRON_UNICYCLE_ITEM.get().getDefaultInstance())
                   .displayItems(
                       (parameters, output) -> {
-                        output.accept(ModItems.UNICYCLE.get());
+                        output.accept(ModItems.IRON_UNICYCLE_ITEM.get());
                       })
                   .build());
 

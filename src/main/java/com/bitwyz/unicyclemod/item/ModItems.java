@@ -11,11 +11,8 @@ public class ModItems {
   public static final DeferredRegister<Item> ITEMS =
       DeferredRegister.create(ForgeRegistries.ITEMS, UnicycleMod.MOD_ID);
 
-  public static final RegistryObject<Item> GOOBER =
-      ITEMS.register("goober", () -> new Item(new Item.Properties()));
-
-  public static final RegistryObject<Item> UNICYCLE =
-      ITEMS.register("unicycle", () -> new UnicycleItem(new Item.Properties().stacksTo(1)));
+  public static final RegistryObject<Item> IRON_UNICYCLE_ITEM =
+      ITEMS.register("iron_unicycle", () -> new UnicycleItem(new Item.Properties().stacksTo(1)));
 
   public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);
