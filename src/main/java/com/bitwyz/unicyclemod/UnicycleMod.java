@@ -1,5 +1,10 @@
 package com.bitwyz.unicyclemod;
 
+import com.bitwyz.unicyclemod.entity.IronUnicycleModel;
+import com.bitwyz.unicyclemod.entity.ModEntities;
+import com.bitwyz.unicyclemod.entity.UnicycleRenderer;
+import com.bitwyz.unicyclemod.item.ModItems;
+import com.bitwyz.unicyclemod.item.ModTabs;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -13,6 +18,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -36,6 +42,7 @@ public class UnicycleMod
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
+    /*
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
@@ -60,6 +67,8 @@ public class UnicycleMod
                 output.accept(EXAMPLE_BLOCK_ITEM.get());
             }).build());
 
+     */
+
     public UnicycleMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -67,12 +76,11 @@ public class UnicycleMod
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        // Register the Deferred Register to the mod event bus so blocks get registered
-        BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
-        ITEMS.register(modEventBus);
+        ModItems.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
-        CREATIVE_MODE_TABS.register(modEventBus);
+        ModTabs.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -89,10 +97,11 @@ public class UnicycleMod
     }
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        /*
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(EXAMPLE_BLOCK_ITEM);
+        */
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -113,6 +122,16 @@ public class UnicycleMod
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        }
+        @SubscribeEvent
+        public static void onRegisterLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+            event.registerLayerDefinition(
+                    IronUnicycleModel.LAYER_LOCATION, IronUnicycleModel::createBodyLayer);
+        }
+
+        @SubscribeEvent
+        public static void onRegisterRenderer(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerEntityRenderer(ModEntities.UNICYCLE.get(), UnicycleRenderer::new);
         }
     }
 }

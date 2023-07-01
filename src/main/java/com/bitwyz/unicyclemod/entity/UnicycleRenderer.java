@@ -3,7 +3,9 @@ package com.bitwyz.unicyclemod.entity;
 import com.bitwyz.unicyclemod.UnicycleMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -34,8 +36,7 @@ public class UnicycleRenderer extends EntityRenderer<Unicycle> {
             int pPackedLight) {
 
         pMatrixStack.pushPose();
-        pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(180.0f - pEntityYaw));
-        pMatrixStack.mulPose(new Quaternionf(X))
+        pMatrixStack.mulPose(Axis.YP.rotationDegrees(180.0f - pEntityYaw));
 
         model.setupAnim(pEntity, pPartialTick, 0.0f, -0.1f, 0.0f, 0.0f);
         VertexConsumer vertexConsumer = pBuffer.getBuffer(model.renderType(texture));
