@@ -29,7 +29,7 @@ import java.util.List;
 public class Unicycle extends Boat {
 
   private static final float MOVE_INV_FRICTION_FAC = 0.6f;
-  private static final float TURN_INV_FRICTION_FAC = 1.6f;
+  private static final float TURN_INV_FRICTION_FAC = 1.3f;
 
   private boolean inputLeft;
   private boolean inputRight;
