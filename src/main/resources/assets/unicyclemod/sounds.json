@@ -1,0 +1,50 @@
+{
+  "music_bad": {
+    "sounds": [
+      {
+        "name": "unicyclemod:music_bad",
+        "stream": true
+      }
+    ]
+  },
+  "music_poland": {
+    "sounds": [
+      {
+        "name": "unicyclemod:music_poland",
+        "stream": true
+      }
+    ]
+  },
+  "music_titanic": {
+    "sounds": [
+      {
+        "name": "unicyclemod:music_titanic",
+        "stream": true
+      }
+    ]
+  },
+  "music_wii": {
+    "sounds": [
+      {
+        "name": "unicyclemod:music_wii",
+        "stream": true
+      }
+    ]
+  },
+  "music_grail": {
+    "sounds": [
+      {
+        "name": "unicyclemod:music_grail",
+        "stream": true
+      }
+    ]
+  },
+  "music_tubes": {
+    "sounds": [
+      {
+        "name": "unicyclemod:music_tubes",
+        "stream": true
+      }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 package com.bitwyz.unicyclemod.item;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,10 +21,17 @@ public class ModTabs {
           () ->
               CreativeModeTab.builder()
                   .withTabsBefore(CreativeModeTabs.COMBAT)
+                  .title(Component.translatable("itemGroup.unicycle_tab"))
                   .icon(() -> ModItems.IRON_UNICYCLE_ITEM.get().getDefaultInstance())
                   .displayItems(
                       (parameters, output) -> {
                         output.accept(ModItems.IRON_UNICYCLE_ITEM.get());
+                        output.accept(ModItems.BAD_DISK_ITEM.get());
+                        output.accept(ModItems.POLAND_DISK_ITEM.get());
+                        output.accept(ModItems.TITANIC_DISK_ITEM.get());
+                        output.accept(ModItems.WII_DISK_ITEM.get());
+                        output.accept(ModItems.TUBES_DISK_ITEM.get());
+                        output.accept(ModItems.GRAIL_DISK_ITEM.get());
                       })
                   .build());
 

@@ -5,6 +5,7 @@ import com.bitwyz.unicyclemod.entity.ModEntities;
 import com.bitwyz.unicyclemod.entity.UnicycleRenderer;
 import com.bitwyz.unicyclemod.item.ModItems;
 import com.bitwyz.unicyclemod.item.ModTabs;
+import com.bitwyz.unicyclemod.sound.ModSounds;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
@@ -69,6 +70,7 @@ public class UnicycleMod {
     // Register the Deferred Register to the mod event bus so tabs get registered
     ModTabs.register(modEventBus);
     ModEntities.register(modEventBus);
+    ModSounds.register(modEventBus);
 
     // Register ourselves for server and other game events we are interested in
     MinecraftForge.EVENT_BUS.register(this);

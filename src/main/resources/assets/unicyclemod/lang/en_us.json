@@ -1,8 +1,26 @@
 {
-  "itemGroup.unicycle_tab": "Unicycles",
+  "itemGroup.unicycle_tab": "Unicycle Mod",
 
   "item.unicyclemod.goober": "Goober",
   "item.unicyclemod.iron_unicycle": "Unicycle",
+
+  "item.unicyclemod.music_disc_bad": "Bad Disk",
+  "item.unicyclemod.music_disc_bad.desc": "The Lorax - How Bad Can I Be?",
+
+  "item.unicyclemod.music_disc_grail": "Homeward Bound",
+  "item.unicyclemod.music_disc_grail.desc": "Jack Trombey - Homeward Bound",
+
+  "item.unicyclemod.music_disc_poland": "Polish Toilet Spin",
+  "item.unicyclemod.music_disc_poland.desc": "Basshunter - Polish Toilet Spin",
+
+  "item.unicyclemod.music_disc_titanic": "My Heart Will Go On",
+  "item.unicyclemod.music_disc_titanic.desc": "Matt Mulholland - My Heart Will Go On (Recorder Cover)",
+
+  "item.unicyclemod.music_disc_tubes": "Series of Tubes",
+  "item.unicyclemod.music_disc_tubes.desc": "superfunky59 - Series of Tubes",
+
+  "item.unicyclemod.music_disc_wii": "Wii Sports Title",
+  "item.unicyclemod.music_disc_wii.desc": "Kazumi Totaka - Wii Sports Title",
 
   "block.unicyclemod.silly_block": "Silly Block",
   "block.unicyclemod.panel_block": "Panel Block"
